@@ -1,0 +1,21 @@
+  
+  #containerInventory {
+    height   : 90vh;
+  }
+
+  #containerForm {
+    display         : flex;
+    flex-direction  : row;
+    justify-content : center;
+    /* position        : relative; */
+    height          : 85vh;
+    min-height      : 85vh;
+    font-size: 0.80rem;
+    
+    padding-bottom: 1rem;
+    
+  }
+
+.inputs {
+  font-size: 0.75rem;
+}

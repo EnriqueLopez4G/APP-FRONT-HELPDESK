@@ -1,0 +1,42 @@
+
+
+.Login {
+  min-height       : 100vh;
+  font-family      : sans-serif;
+  text-align       : center;
+  color            :green;
+  background-color : black;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#idface {
+  width   : 150px;
+  height  : 150px;
+}
+
+#loginform {
+  width            : 350px;
+  height           : 400px;
+  gap              : 1rem;
+  display          :flex;
+  flex-direction   : column;
+  align-items      : center;
+  justify-content  : space-between;
+}
+
+
+
+
+.passwordToggle {
+  position: absolute;
+  top: 50%;
+  transform: translateX(45%);
+  
+  cursor: pointer;
+}
+
+
+
+customButton{ width: 100px !important; }

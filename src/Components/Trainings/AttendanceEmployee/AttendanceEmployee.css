@@ -1,0 +1,121 @@
+.titleTraining {
+    display            : flex;
+    flex-direction     : column;
+    justify-content    : center;
+    align-items        : center;
+}
+
+#titleT {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+}
+
+.titleRegistro {
+    text-align: center;
+}
+
+#containerRecord {
+    width           : 100%;
+    height          : auto;
+    display         : flex;
+    flex-direction  : row;
+    justify-content : center;
+}
+
+.personalSource {
+    width            : 25%;
+    height           : 100%;    
+    display          : flex;
+    flex-direction   : column;    
+    justify-content  : center;
+}
+
+.findWhat {
+    display        : flex;
+    flex-direction : row;
+
+}
+
+#employeeWanted {
+    display         : flex;
+    flex-direction  : row;
+    justify-content : space-evenly;
+    align-items     : center;
+}
+
+
+#numEmployee {
+    text-align: center;
+    flex-wrap: wrap;
+}
+#name {
+    background-color : #FFFDE7;
+    font-family      : 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size        : 1.5rem;
+    justify-content  : center;
+    margin : 0 auto;
+}
+
+
+#department {
+    background-color : #FFFDE7;
+    justify-content  : center;
+    margin           : 0 auto;
+}
+
+
+.dataEmployee {
+    width   : 100%;
+    height  : auto;
+    
+}
+
+#picture {
+    width            : 100%;
+    height           : 100%;
+    display          : flex;
+    justify-content  : center;
+    align-items      : center;
+}
+
+#picture img {
+    width         : "130px";
+    height        : "180px";
+    border-radius : 5%;
+    border        : 5px solid #AAA;
+    max-width: 100%;
+    
+
+    
+    box-shadow:
+    inset 0 -3em 3em rgba(0,0,0,0.1),
+          0 0  0 3px #ccc,
+          0.3em 0.3em 1em rgba(0,0,0,0.3); 
+}
+.times {
+    display        : flex;
+    flex-direction : row;   
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.75rem;
+}
+
+.spaceCheckIn, .spaceCheckOut {
+    display          : flex;
+    flex-direction   : column;
+    align-items      : center;
+    justify-content  : center;
+    margin-bottom    : 2rem;
+}
+
+.spaceButton {
+    display:flex;
+    justify-content: center;
+    
+}
+
+
+.List {
+   width: 70%;
+   height: 90%; 
+   overflow-y: scroll;
+}
