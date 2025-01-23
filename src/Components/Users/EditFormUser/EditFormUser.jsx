@@ -12,8 +12,7 @@ import axios from 'axios';
 import { updateTask } from '../../../redux/tasks/tasksReducer';
 import { superPassword } from '../../../js/superPassword';
 
-const {REACT_APP_API} = process.env;
-
+const {VITE_APP_API} = import.meta.env;
 
 
 export default function EditFormUser( {myTitle,myData,lgShow, handleLgClose, handleLgUpdate}) {
@@ -36,7 +35,7 @@ export default function EditFormUser( {myTitle,myData,lgShow, handleLgClose, han
       level     : newLevel
     }
     try {
-        const response = await axios.put(`${REACT_APP_API}/user`,dataToChange, {
+        const response = await axios.put(`${VITE_APP_API}/user`,dataToChange, {
           headers: {
               "authorization": `Bearer ${userLogged.userToken}`,
           }

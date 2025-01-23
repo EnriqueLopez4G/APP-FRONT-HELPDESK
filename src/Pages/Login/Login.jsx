@@ -48,10 +48,10 @@ function Login() {
   
     if (passwordInput.type === "password") {
       passwordInput.type = "text";
-      passwordToggle.innerHTML = '<i class="fas fa-eye-slash"></i>';
+      passwordToggle.innerHTML = '<i className="fas fa-eye-slash"></i>';
     } else {
       passwordInput.type = "password";
-      passwordToggle.innerHTML = '<i class="fas fa-eye"></i>';
+      passwordToggle.innerHTML = '<i className="fas fa-eye"></i>';
     }
   }
   
@@ -192,8 +192,8 @@ return (
                                     value       = {password}
                                   />
 
-                                  <span class="passwordToggle" onClick ={()=> togglePasswordVisibility()}>
-                                      <i class="fas fa-eye"></i>
+                                  <span className="passwordToggle" onClick ={()=> togglePasswordVisibility()}>
+                                      <i className="fas fa-eye"></i>
                                   </span>
                           </Row>
                         </Form.Group>

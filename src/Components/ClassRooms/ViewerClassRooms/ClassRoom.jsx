@@ -12,7 +12,7 @@ import Annoument    from '../../Alerts/Annoument/Annoument';
 import EditFormClassRoom from '../EditClassRoom/EditClassRoom';
 import { useLocalStorage } from '../../../js/useLocalStorage';
 import axios from 'axios';
-const {REACT_APP_API} = process.env;
+const {VITE_APP_API} = import.meta.env;
 
 export default function ClassRoom( {c}) {
   const [show, setShow]     = useState(false);

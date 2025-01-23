@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from 'axios';
 import { useLocalStorage } from '../../js/useLocalStorage';
 
-const {REACT_APP_API} = process.env;
+const {VITE_APP_API} = import.meta.env;
 
 
 function Settings() {

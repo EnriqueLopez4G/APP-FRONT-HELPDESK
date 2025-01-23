@@ -11,7 +11,7 @@ import AvisoModal                 from '../../Alerts/AvisoModal/AvisoModal';
 
 import './AttendanceEmployee.css';
 
-const {REACT_APP_API} = process.env;
+const {VITE_APP_API} = import.meta.env;
 const defaultFile = 'https://stonegatesl.com/wp-content/uploads/2021/01/avatar-300x300.jpg'; 
 
 function AttendanceEmployee() {
@@ -135,7 +135,7 @@ const cerrarModal = () => {
 
 const getEmployee = async()=> {
   try {
-    const response = await axios.get(`${REACT_APP_API}/employees/number/${numEmployeeState}`, {
+    const response = await axios.get(`${VITE_APP_API}/employees/number/${numEmployeeState}`, {
       headers: {
           "authorization": `Bearer ${userLogged.userToken}`,
       }
@@ -157,7 +157,7 @@ const getEmployee = async()=> {
   const getTraining = async() => {
 
     try {
-      const response = await axios.get(`${REACT_APP_API}/trainings/${IDT}`, {
+      const response = await axios.get(`${VITE_APP_API}/trainings/${IDT}`, {
         headers: {
             "authorization": `Bearer ${userLogged.userToken}`,
         }
@@ -204,7 +204,7 @@ const getEmployee = async()=> {
 
   const getEmployeesOfTraining = async()=> {
     try {
-      const response = await axios.get(`${REACT_APP_API}/trainingEmployee/${IDT}`);
+      const response = await axios.get(`${VITE_APP_API}/trainingEmployee/${IDT}`);
       if (response) {
 
         setEmployeesOfTraining(response.data)
@@ -273,7 +273,7 @@ console.log(employeeFounded)
 } 
 
   try {
-    const response = await axios.post(`${REACT_APP_API}/trainingEmployee`,data);
+    const response = await axios.post(`${VITE_APP_API}/trainingEmployee`,data);
     if (response.status === 200) {
       console.log('exito')
       setListPersonal([...listPersonal,registro]);
@@ -293,7 +293,7 @@ const findEmployee_In_Trainings = async()=> {
   };
     
   try {
-    const response = await axios.get(`${REACT_APP_API}/trainingEmployee`, {
+    const response = await axios.get(`${VITE_APP_API}/trainingEmployee`, {
       params: {
         jsonData: JSON.stringify(buscado), // Convertir el objeto JSON a una cadena
       },
@@ -305,7 +305,7 @@ const findEmployee_In_Trainings = async()=> {
       buscado.newCheckOut = checkOut;
       // Como si se encontro, se procede a modificar la hora en el listPersonal y hacer un put en el back
       try {
-        const response = await axios.put(`${REACT_APP_API}/trainingEmployee`,buscado);
+        const response = await axios.put(`${VITE_APP_API}/trainingEmployee`,buscado);
         if (response) {
           console.log(response)
         
@@ -334,7 +334,7 @@ const handleRecord = ()=> {
 //buscar empleado en la tabla empleados si existe podemos ingresarlo al training
 const handleGetEmployee = async(e)=> {
   try {
-        const response = await axios.get(`${REACT_APP_API}/employees/number/${numEmployeeState}`, {
+        const response = await axios.get(`${VITE_APP_API}/employees/number/${numEmployeeState}`, {
           headers: {
               "authorization": `Bearer ${userLogged.userToken}`,
           }

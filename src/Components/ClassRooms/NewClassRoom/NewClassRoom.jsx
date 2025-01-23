@@ -18,7 +18,7 @@ import axios from 'axios';
 import moment from 'moment';
 
 
-const {REACT_APP_API} = process.env;
+const {VITE_APP_API} = import.meta.env;
 
 moment.locale('us');
 
@@ -42,7 +42,7 @@ export default function NewClassRoom() {
     const yaExisteClassRoom = async()=> {
         /* buscamos el classroom en db */
         
-        const response = await axios.get(`${REACT_APP_API}/classRoom/room/${txtclassRoom}`, {
+        const response = await axios.get(`${VITE_APP_API}/classRoom/room/${txtclassRoom}`, {
            headers: {
                "authorization": `Bearer ${userLogged.userToken}`,
            }
@@ -107,7 +107,7 @@ export default function NewClassRoom() {
                         } else {
                             try 
                                 {
-                                    const response = await axios.post(`${REACT_APP_API}/classRoom`,newClassRoom, {
+                                    const response = await axios.post(`${VITE_APP_API}/classRoom`,newClassRoom, {
                                         headers: {
                                             "authorization": `Bearer ${userLogged.userToken}`,
                                         }

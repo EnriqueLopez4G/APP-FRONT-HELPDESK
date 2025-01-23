@@ -11,7 +11,7 @@ import Modal     from 'react-bootstrap/Modal'
 import { tostada_W } from '../../../utils/Tostadas';
 
 import axios from 'axios';
-const {REACT_APP_API} = process.env;
+const {VITE_APP_API} = import.meta.env;
 
 export default function EditFormClassRoom( {myTitle,myData,lgShow, handleLgClose, handleLgUpdate}) {
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ export default function EditFormClassRoom( {myTitle,myData,lgShow, handleLgClose
     }
     
     try {
-      const response = await axios.put(`${REACT_APP_API}/classRoom`,dataToChange, {
+      const response = await axios.put(`${VITE_APP_API}/classRoom`,dataToChange, {
         headers: {
             "authorization": `Bearer ${userLogged.userToken}`,
         }

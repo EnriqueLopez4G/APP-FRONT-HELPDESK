@@ -11,7 +11,7 @@ import './ViewerUsers.css';
 import { useLocalStorage } from '../../js/useLocalStorage';
 
 
-const {REACT_APP_API} = process.env;
+const {VITE_APP_API} = import.meta.env;
 
 function ViewerUsers() {
   const navigate= useNavigate();
@@ -23,7 +23,7 @@ function ViewerUsers() {
 
   const getAllUsers =async()=> {
     try {
-      const response = await axios.get(`${REACT_APP_API}/user`, {
+      const response = await axios.get(`${VITE_APP_API}/user`, {
         headers: {
             "authorization": `Bearer ${userLogged.userToken}`,
         }

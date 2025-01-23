@@ -18,7 +18,7 @@ import ViewerTrainings     from './Components/Trainings/ViewerTrainings/ViewerTr
 import NewEmployee         from "./Components/Employees/NewEmployee/NewEmployee";
 import ViewerEmployees     from './Components/Employees/ViewerEmployees/ViewerEmployees';
 import RecordAttendance    from "./Components/Trainings/RecordAttendance/RecordAttendance";
-// import AttendanceEmployee  from "./Components/Trainings/AttendanceEmployee/AttendanceEmployee";
+import AttendanceEmployee  from "./Components/Trainings/AttendanceEmployee/AttendanceEmployee";
 
 import ViewerUsers         from './Components/Users/ViewerUsers';
 
@@ -46,7 +46,7 @@ function App() {
           <Route path = 'newtraining'            element = { <NewTraining/>  }/>  
           <Route path = 'viewertrainings'        element = { <ViewerTrainings/> }/>  
           <Route path = 'recordattendance'       element = { <RecordAttendance/> }/>  
-          {/* <Route path = "attendanceemployee/:idt"     element =  { <AttendanceEmployee/>}/>  */}
+          <Route path = "attendanceemployee/:idt"     element =  { <AttendanceEmployee/>}/> 
           
           <Route path = 'newemployee'            element = { <NewEmployee/> }/>
           <Route path = 'vieweremployees'        element = { <ViewerEmployees/> }/>  

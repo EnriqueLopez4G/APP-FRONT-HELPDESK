@@ -18,7 +18,7 @@ import axios from 'axios';
 import { tostada_S, tostada_W } from '../../../utils/Tostadas';
 import moment from 'moment';
 
-const {REACT_APP_API} = process.env;
+const {VITE_APP_API} = import.meta.env;
 
 function NewDeviceInventory() {
     const navigate= useNavigate();

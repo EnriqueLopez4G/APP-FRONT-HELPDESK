@@ -8,7 +8,7 @@ import { useLocalStorage } from '../../../js/useLocalStorage';
 
 //import { createListClassRooms } from '../../../redux/classRooms/classRoomsReducer';
 import axios from 'axios';
-const {REACT_APP_API} = process.env;
+const {VITE_APP_API} = import.meta.env;
 
 function ServiceOrdersViewer() {
   const [listOS,setlistOS]  = useState();
@@ -16,7 +16,7 @@ function ServiceOrdersViewer() {
 
   const getListOS = async()=> {
     try {
-        const listServiceOrders = await axios.get(`${REACT_APP_API}/services/level/Absolute`, {
+        const listServiceOrders = await axios.get(`${VITE_APP_API}/services/level/Absolute`, {
           headers: {
               "authorization": `Bearer ${userLogged.userToken}`,
           }

@@ -9,7 +9,7 @@ import { tostada_S } from '../utils/Tostadas';
 import { useLocalStorage } from '../js/useLocalStorage';
 
 import axios from 'axios';
-const {REACT_APP_API} = process.env;
+const {VITE_APP_API} = import.meta.env;
 
 export default function ManagePdfs( {myTitle,myData,show, handleClosePdfs, handleManagePdfs}) {
     const navigate = useNavigate();
@@ -32,7 +32,7 @@ export default function ManagePdfs( {myTitle,myData,show, handleClosePdfs, handl
 
        formData.append('name',fileToUpload)
 
-       const responseToUpload = await axios.post(`${REACT_APP_API}/serviceUpload`,formData)
+       const responseToUpload = await axios.post(`${VITE_APP_API}/serviceUpload`,formData)
        if ( responseToUpload ) {
         if (responseToUpload.status ===200 && responseToUpload.data ==='File uploaded!') {
           tostada_S('File PDF sended successful!',"bottom-center",1500,'colored');

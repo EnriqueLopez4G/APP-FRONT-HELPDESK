@@ -12,7 +12,7 @@ import axios         from 'axios';
 
 import { tostada_S, tostada_W } from '../../utils/Tostadas';
 
-const {REACT_APP_API} = process.env;
+const {VITE_APP_API} = import.meta.env;
 
 export default function User( {u}) {
 

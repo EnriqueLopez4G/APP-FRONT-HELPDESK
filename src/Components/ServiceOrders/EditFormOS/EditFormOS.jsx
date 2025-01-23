@@ -9,7 +9,7 @@ import { tostada_S } from '../../../utils/Tostadas';
 import { useLocalStorage } from '../../../js/useLocalStorage';
 
 import axios from 'axios';
-const {REACT_APP_API} = process.env;
+const {VITE_APP_API} = import.meta.env;
 
 export default function EditFormOS( {myTitle,myData,lgShow, handleLgClose, handleLgUpdate}) {
     const navigate = useNavigate();
@@ -24,7 +24,7 @@ export default function EditFormOS( {myTitle,myData,lgShow, handleLgClose, handl
           orderService  : myData.number,
        }
        try {
-          const response = await axios.put(`${REACT_APP_API}/task/status`,dataOfNewState, {
+          const response = await axios.put(`${VITE_APP_API}/task/status`,dataOfNewState, {
             headers: {
                 "authorization": `Bearer ${userLogged.userToken}`,
             }
@@ -63,7 +63,7 @@ export default function EditFormOS( {myTitle,myData,lgShow, handleLgClose, handl
       }
       
       try {
-        const response = await axios.put(`${REACT_APP_API}/services`,dataToChange)  
+        const response = await axios.put(`${VITE_APP_API}/services`,dataToChange)  
         if (response) {
           try {
             await saveNewStatus();

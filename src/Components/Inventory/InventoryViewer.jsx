@@ -26,7 +26,7 @@ import { createListClassRooms }            from '../../redux/classRooms/classRoo
 
 /* import ExportToXLS from '../ExportToXLS/ExportToXLS'; */
 
-const {REACT_APP_API} = process.env;
+const {VITE_APP_API} = import.meta.env;
 
 
 function InventoryViewer() {
@@ -179,7 +179,7 @@ const DATA = listOfInventory;
 async function handleClickDelete() { 
   //primero lo eliminamos de la base de datos
   try {
-    const response = await axios.delete(`${REACT_APP_API}/inventory/code/${currentRecord.internalCode}`, {
+    const response = await axios.delete(`${VITE_APP_API}/inventory/code/${currentRecord.internalCode}`, {
       headers: {
           "authorization": `Bearer ${userLogged.userToken}`,
       }

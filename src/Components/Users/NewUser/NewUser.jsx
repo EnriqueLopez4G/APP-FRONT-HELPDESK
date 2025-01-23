@@ -11,7 +11,7 @@ import Col       from 'react-bootstrap/Col';
 import "./NewUser.css";
 import axios from 'axios';
 import { tostada_S, tostada_W } from '../../../utils/Tostadas';
-const {REACT_APP_API} = process.env;
+const {VITE_APP_API} = import.meta.env;
 
 // de momento no se esta utilizando
 //const arrayLevels = [ "PreSchool", "Elementary", "HighSchool", "College","Global","Absolute"];
@@ -31,7 +31,7 @@ function NewUser() {
   
     const yaExisteEmail = async()=> {
       /* buscamos el email en db */
-      const response = await axios.get(`${REACT_APP_API}/user/${txtNewEmail}`, {
+      const response = await axios.get(`${VITE_APP_API}/user/${txtNewEmail}`, {
          headers: {
              "authorization": `Bearer ${userLogged.userToken}`,
          }
@@ -102,7 +102,7 @@ function NewUser() {
                } else 
                   {
                   try {
-                     const response = await axios.post(`${REACT_APP_API}/user`,newUser, {
+                     const response = await axios.post(`${VITE_APP_API}/user`,newUser, {
                         headers: {
                             "authorization": `Bearer ${userLogged.userToken}`,
                         }

@@ -20,7 +20,7 @@ import EditFormTraining from '../EditFormTraining/EditFormTraining';
 import AttedanceEmployee from '../AttendanceEmployee/AttendanceEmployee';
 
 
-const {REACT_APP_API} = process.env;
+const {VITE_APP_API} = import.meta.env;
 
 
 function RecordAttendance() {
@@ -116,7 +116,7 @@ createTheme('solarized', {
 
   const getAllTrainings =async()=> {
     try {
-      const response = await axios.get(`${REACT_APP_API}/trainings`, {
+      const response = await axios.get(`${VITE_APP_API}/trainings`, {
         headers: {
             "authorization": `Bearer ${userLogged.userToken}`,
         }

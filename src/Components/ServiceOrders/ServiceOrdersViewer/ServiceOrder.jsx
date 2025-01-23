@@ -15,7 +15,7 @@ import moment from 'moment';
 import { useLocalStorage } from '../../../js/useLocalStorage';
 
 
-const {REACT_APP_API} = process.env;
+const {VITE_APP_API} = import.meta.env;
 
 
 export default function ServiceOrder( {c}) {
@@ -47,7 +47,7 @@ export default function ServiceOrder( {c}) {
       orderService: '',
     }
     try {
-      const response = await axios.put(`${REACT_APP_API}/task/status/`,dataToSend, {
+      const response = await axios.put(`${VITE_APP_API}/task/status/`,dataToSend, {
         headers: {
             "authorization": `Bearer ${userLogged.userToken}`,
         }
@@ -69,7 +69,7 @@ export default function ServiceOrder( {c}) {
         c.dateCancel    = new Date();
         c.dateDone = null;
           //lo actualizamos en la base de datos
-          const response = await axios.put(`${REACT_APP_API}/services/`,c, {
+          const response = await axios.put(`${VITE_APP_API}/services/`,c, {
             headers: {
                 "authorization": `Bearer ${userLogged.userToken}`,
             }
@@ -91,7 +91,7 @@ export default function ServiceOrder( {c}) {
     
 
    const completeTask =async(nt)=> {
-    const response = await axios.get(`${REACT_APP_API}/task/status/${nt}`, {
+    const response = await axios.get(`${VITE_APP_API}/task/status/${nt}`, {
       headers: {
           "authorization": `Bearer ${userLogged.userToken}`,
       }
