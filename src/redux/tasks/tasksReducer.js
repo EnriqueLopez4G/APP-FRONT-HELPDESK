@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import axios from "axios";
-const { VITE_API_URL } = import.meta.env;
-
-
+const { VITE_APP_API } = import.meta.env;
 
 
 const initialState = { listOfTasks:[] };
@@ -44,7 +42,7 @@ export const { loadTasks, addTask, updateTask,deleteTask} = taskReducer.actions;
 export default taskReducer.reducer;
 
 export const loadAllTasks = (levelReq) => (dispatch) => {
-        axios.get(`${VICTE_APP_API}/task/${levelReq}`) 
+        axios.get(`${VITE_APP_API}/task/${levelReq}`) 
         .then((response) => {
         dispatch(loadTasks(response.data));
         })

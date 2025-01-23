@@ -59,6 +59,7 @@ function Login() {
 const validUser = async()=> 
 {
   //valida primero si es admin
+  
   if (email === VITE_APP_EMAIL_SUPER_ADMIN) {
     if (password === VITE_APP_PASSWORD_SUPER_ADMIN) {
       //-----------if password is correct

@@ -22,8 +22,6 @@ const { VITE_APP_API } = import.meta.env;
 const { VITE_APP_CLOUDINARY_CLOUD_NAME, 
    VITE_APP_CLOUDINARY_UPLOAD_PRESET} =import.meta.env;
 
-
-
 // de momento no se esta utilizando
 //const arrayLevels = [ "PreSchool", "Elementary", "HighSchool", "College","Global","Absolute"];
 

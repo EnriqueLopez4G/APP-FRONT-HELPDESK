@@ -43,14 +43,14 @@ function FormResolve( {propNumber}) {
    const [userLogged    , setUserLogged]    = useLocalStorage('userLogged','');
    
 
-   const {REACT_APP_API} = process.env;
+   const {VITE_APP_API} = import.meta.env;
       
    //---------------MOSTRAR EL MODAL DE NewService.jsx ---------------------//
    const handleShowService       = () =>  setModalShow(true);   
 
     const findTaskOnDB = async() => {
       try {
-         const statusTask = await axios.get(`${REACT_APP_API}/task/status/${propNumber}`, {
+         const statusTask = await axios.get(`${VITE_APP_API}/task/status/${propNumber}`, {
             headers: {
                 "authorization": `Bearer ${userLogged.userToken}`,
             }
@@ -67,7 +67,7 @@ function FormResolve( {propNumber}) {
             if (statusTask.data.statusTask === 'Process' && !orderService) setdisableCOMPLETED(false);
             if (orderService) { // si hay una orden de servicio en la tabla de tareas de esta tarea encontrada en particular, busca el estado de esta orden
                try {
-                  const statusService = await axios.get(`${REACT_APP_API}/services/number/${orderService}`, {
+                  const statusService = await axios.get(`${VITE_APP_API}/services/number/${orderService}`, {
                      headers: {
                          "authorization": `Bearer ${userLogged.userToken}`,
                      }
@@ -123,7 +123,7 @@ function FormResolve( {propNumber}) {
          }
          
          try {
-            const response = await axios.put(`${REACT_APP_API}/task/status`,dataOfNewState, {
+            const response = await axios.put(`${VITE_APP_API}/task/status`,dataOfNewState, {
                headers: {
                    "authorization": `Bearer ${userLogged.userToken}`,
                }
@@ -151,7 +151,7 @@ function FormResolve( {propNumber}) {
          dateSolution: null,
       }
       try {
-         const response = await axios.put(`${REACT_APP_API}/task/status`,dataOfNewState, {
+         const response = await axios.put(`${VITE_APP_API}/task/status`,dataOfNewState, {
             headers: {
                 "authorization": `Bearer ${userLogged.userToken}`,
             }
@@ -170,7 +170,7 @@ function FormResolve( {propNumber}) {
       let canContinue = false;
       if (!newOrderService) canContinue = true;
       else {
-         let response = await axios.get(`${REACT_APP_API}/services/number/${newOrderService}`, {
+         let response = await axios.get(`${VITE_APP_API}/services/number/${newOrderService}`, {
             headers: {
                 "authorization": `Bearer ${userLogged.userToken}`,
             }
@@ -188,7 +188,7 @@ function FormResolve( {propNumber}) {
             dateSolution  : newDateSolution,
          }
          try {
-            const response = await axios.put(`${REACT_APP_API}/task/status`,dataOfNewState, {
+            const response = await axios.put(`${VITE_APP_API}/task/status`,dataOfNewState, {
                headers: {
                    "authorization": `Bearer ${userLogged.userToken}`,
                }
@@ -242,7 +242,7 @@ function FormResolve( {propNumber}) {
     const thereAreDoc =async()=> {
       try 
          {
-            const response = await axios.get(`${REACT_APP_API}/configServiceOrder`, {
+            const response = await axios.get(`${VITE_APP_API}/configServiceOrder`, {
                headers: {
                 "authorization": `Bearer ${userLogged.userToken}`,
                }

@@ -50,7 +50,7 @@ function NewDeviceInventory() {
     const yaExisteInternalCode = async()=> {
       try {
          /* buscamos el code en db */
-         const response = await axios.get(`${REACT_APP_API}/inventory/code/${txtinternalCode}`, {
+         const response = await axios.get(`${VITE_APP_API}/inventory/code/${txtinternalCode}`, {
             headers: {
                "authorization": `Bearer ${userLogged.userToken}`,
             }
@@ -182,7 +182,7 @@ function NewDeviceInventory() {
                } else 
                   {
                   try {
-                     const response = await axios.post(`${REACT_APP_API}/inventory`,NewDeviceInventory, {
+                     const response = await axios.post(`${VITE_APP_API}/inventory`,NewDeviceInventory, {
                         headers: {
                             "authorization": `Bearer ${userLogged.userToken}`,
                         }

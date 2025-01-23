@@ -42,7 +42,7 @@ export const { loadInventory, addInventory, updateInventory,deleteInventory} = i
 export default inventoryReducer.reducer;
 
 export const loadAllInventory = () => (dispatch) => {
-        axios.get(`${REACT_APP_API}/inventory`) 
+        axios.get(`${VITE_APP_API}/inventory`) 
         .then((response) => {
         dispatch(loadInventory(response.data));
         })

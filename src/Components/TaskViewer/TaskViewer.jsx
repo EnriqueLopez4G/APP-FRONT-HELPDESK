@@ -28,7 +28,7 @@ function TaskViewer() {
   const dispatch = useDispatch();  
   const navigate = useNavigate();
   const { listOfTasks } = useSelector( state=> state.tasks);
-  
+    
   const [userLogged, setUserLogged] = useLocalStorage('userLogged');
   
   const [show, setShow]     = useState(false);
@@ -144,12 +144,14 @@ createTheme('solarized', {
     }
 ];
 
-const DATA = listOfTasks;
+let DATA = listOfTasks;
+
   useEffect(() => {
       dispatch(createListClassRooms(userLogged.levelUser));
   },[])
 
   useEffect(() => {
+    // dispatch(loadAllTasks(userLogged.levelUser));
     dispatch(loadAllTasks(userLogged.levelUser));
 },[listOfTasks]);
 //*----------------------------------------------------
@@ -234,40 +236,60 @@ let myData = {
   problem   : currentRecord.problem
 }
 
+// Se ejecuta cuando listOfTasks está vacío
+useEffect(() => {
+  if (listOfTasks.length === 0) {
+    dispatch(loadAllTasks(userLogged.levelUser)); // Cargar tareas si está vacío
+  }
+}, [listOfTasks, dispatch, userLogged.levelUser]);
 
-  return (
-    <Container className = "container-fluid py-5 mb-2" >
-      <DataTable columns      = { columns }  
-                 data         = { DATA }  
-                 customStyles = {customStyles} 
-                  /*  selecttableRows  */
-                   fixedHeader 
-                   pagination 
-                   striped
-                   /* theme="solarized" */
-      />
 
-      <Confirmation  
-        titulo       = "Warning!"     
-        mensaje      = "Do you want Delete this Request?"   
-        textBtn      = "Delete"
-        show         = { show }    
-        handleClose  = { handleClose } 
-        handleDelete = { handleDelete }
-      />
-      <Annoument     titulo       = "Annoument"    
-                    mensaje       = "Request deleted susscesfull ✅ " 
-                    smShow        = { smShow }  
-                    handleSmClose = { handleSmClose }
-      /> 
-      <EditFormTask myTitle        = "Edit Request" 
-                    myData         = { currentRecord }    
-                    lgShow         = { lgShow }             
-                    handleLgClose  = { handleLgClose }     
-                    handleLgUpdate = { handleLgUpdate }
-      />
-    </Container>    
-  );
+// Si DATA sigue vacío, podemos poner un registro predeterminado
+if (DATA.length === 0) {
+  DATA = [{
+    id: 'default-id',
+    dateTask: '2025-01-01T00:00:00.000Z',
+    classRoom: 'Default Classroom',
+    gyg: 'Default GYG',
+    problem: 'No tasks available',
+    statusTask: 'Pending',
+    level: userLogged.levelUser,
+    teacher: 'Default Teacher',
+    device: 'Default Device',
+  }];
+}
+return (
+  <Container className="container-fluid py-5 mb-2">
+
+    <DataTable columns={columns}
+      data={DATA}
+      customStyles={customStyles}
+      fixedHeader
+      pagination
+      striped
+    />
+
+    <Confirmation
+      titulo="Warning!"
+      mensaje="Do you want Delete this Request?"
+      textBtn="Delete"
+      show={show}
+      handleClose={handleClose}
+      handleDelete={handleDelete}
+    />
+    <Annoument titulo="Annoument"
+      mensaje="Request deleted successfully ✅ "
+      smShow={smShow}
+      handleSmClose={handleSmClose}
+    />
+    <EditFormTask myTitle="Edit Request"
+      myData={currentRecord}
+      lgShow={lgShow}
+      handleLgClose={handleLgClose}
+      handleLgUpdate={handleLgUpdate}
+    />
+  </Container>
+);
 }
 
 export default TaskViewer;
