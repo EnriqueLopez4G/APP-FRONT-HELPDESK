@@ -44,6 +44,7 @@
   "scripts": {
     "start": "BROWSER=none WDS_SOCKET_PORT=0 vite --port 3000",
     "build": "vite build",
+    "heroku-postbuild": "npm install --production=false && npm run build",
     "preview": "vite preview",
     "test": "vitest"
   },
